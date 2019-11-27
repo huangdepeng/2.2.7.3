@@ -48,10 +48,10 @@
 	"{id:category}IR": "Hicbit遥控",
 	"IR.init|block": "初始化红外遥控接收传感器|%pin|",
 	"IR.onPressEvent|block": "当红外接收到遥控器码|%btn|时",
-	"IR.hicbit_Port_IR_block.port1|block":"接口1",
-	"IR.hicbit_Port_IR_block.port2|block":"接口2",
-	"IR.hicbit_Port_IR_block.port3|block":"接口3",
-	"IR.hicbit_Port_IR_block.port4|block":"接口4",
+	"hicbit_Port_IR.port1|block":"接口1",
+	"hicbit_Port_IR.port2|block":"接口2",
+	"hicbit_Port_IR.port3|block":"接口3",
+	"hicbit_Port_IR.port4|block":"接口4",
 
 
 	"{id:category}Display": "Hicbit显示",

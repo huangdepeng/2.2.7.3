@@ -877,11 +877,50 @@ namespace Sensor {
     /**
      * Determine the direction of remote sensing.
      */
-    //% weight=88 blockId=hicbit_Rocker block="Rocker value %value"
-    export function hicbit_Rocker( value: enRocker): boolean {
-        let x = pins.analogReadPin(AnalogPin.P4);
-        let y = pins.analogReadPin(AnalogPin.P10);
+    //% weight=88 blockId=hicbit_Rocker block="Rocker|port %port| value %value"
+    export function hicbit_Rocker(port: hicbit_Port, value: enRocker): boolean {
+        let x: number = 0;
+        let y: number = 0;
         let now_state = enRocker.Nostate;
+
+        switch (port) {
+            case hicbit_Port.port1:
+                pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
+                basic.pause(5);
+                x = pins.analogReadPin(AnalogPin.P1);
+                basic.pause(5);
+                pins.setPull(DigitalPin.P15, PinPullMode.PullDown);
+                basic.pause(5);
+                y = pins.analogReadPin(AnalogPin.P1);
+                break;
+            case hicbit_Port.port2:
+                pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
+                basic.pause(5);
+                x = pins.analogReadPin(AnalogPin.P2);
+                basic.pause(5);
+                pins.setPull(DigitalPin.P13, PinPullMode.PullDown);
+                basic.pause(5);
+                y = pins.analogReadPin(AnalogPin.P2);
+                break;
+            case hicbit_Port.port3:
+                pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
+                basic.pause(5);
+                x = pins.analogReadPin(AnalogPin.P3);
+                basic.pause(5);
+                pins.setPull(DigitalPin.P14, PinPullMode.PullDown);
+                basic.pause(5);
+                y = pins.analogReadPin(AnalogPin.P3);
+                break;
+            case hicbit_Port.port4:
+                pins.setPull(DigitalPin.P10, PinPullMode.PullUp);
+                basic.pause(5);
+                x = pins.analogReadPin(AnalogPin.P4);
+                basic.pause(5);
+                pins.setPull(DigitalPin.P10, PinPullMode.PullDown);
+                basic.pause(5);
+                y = pins.analogReadPin(AnalogPin.P4);
+                break;
+        }
 
         if (x < 100) // 上
         {
@@ -1012,16 +1051,16 @@ namespace Sensor {
 //% icon="\uf1eb"
 namespace IR {
 
-    enum hicbit_Port_IR_block {
-        //% block="port 1"
-        port1 = 21,
-        //% block="port 2"
-        port2 = 23,
-        //% block="port 3"
-        port3 = 22,
-        //% block="port 4"
-        port4 = 6,
-    }
+    // export enum hicbit_Port_IR {
+    //     //% block="port 1"
+    //     port1 = 21,
+    //     //% block="port 2"
+    //     port2 = 23,
+    //     //% block="port 3"
+    //     port3 = 22,
+    //     //% block="port 4"
+    //     port4 = 6,
+    // }
 
     /**
     * initialization
@@ -1030,7 +1069,7 @@ namespace IR {
     //% blockGap=20 weight=90
     //% block="connect ir receiver to %pin"
     //% shim=IR::init
-    export function init(pin: hicbit_Port_IR_block): void {
+    export function init(pin: hicbit_Port_IR): void {
         return
     }
     

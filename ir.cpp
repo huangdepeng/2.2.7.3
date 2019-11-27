@@ -4,12 +4,17 @@
 #include "ReceiverIR.h"
 using namespace pxt;
 typedef vector<Action> vA;
+using namespace IR;
 
 enum class hicbit_Port_IR { 
-  port1 = 21,
-  port2 = 23,
-  port3 = 22,
-  port4 = 6
+    //% block="port 1"
+    port1 = 21,
+    //% block="port 2"
+    port2 = 23,
+    //% block="port 3"
+    port3 = 22,
+    //% block="port 4"
+    port4 = 6,
 };
 
 enum class RemoteButton {
