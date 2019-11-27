@@ -886,38 +886,26 @@ namespace Sensor {
         switch (port) {
             case hicbit_Port.port1:
                 pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
-                basic.pause(5);
                 x = pins.analogReadPin(AnalogPin.P1);
-                basic.pause(5);
                 pins.setPull(DigitalPin.P15, PinPullMode.PullDown);
-                basic.pause(5);
                 y = pins.analogReadPin(AnalogPin.P1);
                 break;
             case hicbit_Port.port2:
                 pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
-                basic.pause(5);
                 x = pins.analogReadPin(AnalogPin.P2);
-                basic.pause(5);
                 pins.setPull(DigitalPin.P13, PinPullMode.PullDown);
-                basic.pause(5);
                 y = pins.analogReadPin(AnalogPin.P2);
                 break;
             case hicbit_Port.port3:
                 pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
-                basic.pause(5);
                 x = pins.analogReadPin(AnalogPin.P3);
-                basic.pause(5);
                 pins.setPull(DigitalPin.P14, PinPullMode.PullDown);
-                basic.pause(5);
                 y = pins.analogReadPin(AnalogPin.P3);
                 break;
             case hicbit_Port.port4:
                 pins.setPull(DigitalPin.P10, PinPullMode.PullUp);
-                basic.pause(5);
                 x = pins.analogReadPin(AnalogPin.P4);
-                basic.pause(5);
                 pins.setPull(DigitalPin.P10, PinPullMode.PullDown);
-                basic.pause(5);
                 y = pins.analogReadPin(AnalogPin.P4);
                 break;
         }
