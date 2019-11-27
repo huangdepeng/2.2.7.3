@@ -879,8 +879,8 @@ namespace Sensor {
      */
     //% weight=88 blockId=hicbit_Rocker block="Rocker|port %port| value %value"
     export function hicbit_Rocker(port: hicbit_Port, value: enRocker): boolean {
-        let x: number = 0;
-        let y: number = 0;
+        let x: number;
+        let y: number;
         let now_state = enRocker.Nostate;
 
         switch (port) {
